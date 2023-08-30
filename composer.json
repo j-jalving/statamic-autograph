@@ -1,0 +1,27 @@
+{
+    "name": "j-jalving/statamic-autograph",
+    "autoload": {
+        "psr-4": {
+            "JJalving\\Autograph\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Statamic Autograph",
+            "description": "Autograph addon"
+        },
+        "laravel": {
+            "providers": [
+                "JJalving\\Autograph\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "statamic/cms": "^4.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "pixelfear/composer-dist-plugin": true
+        }
+    }
+}
