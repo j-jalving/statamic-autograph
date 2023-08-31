@@ -29,7 +29,7 @@ Using Statamic Autograph is really simple:
 2. Open the Autograph page, select a user and click the Generate button.
 3. An HTML code block will appear, copy this code to your prefered e-mail client. 
   
-> Note: We don't provide instructions how to do this for each client, but a quick Google search should do the trick.
+> Note: I don't have instructions how to do this for each client, but a quick Google search should do the trick.
 
 ## Creating a template
 
