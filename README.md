@@ -37,6 +37,16 @@ Using Statamic Autograph is really simple:
 
 By default, the addon looks for `antlers.html` template files in the `resources/views/autograph` folder (though this path can be changed in the config). You can do everything in your template that you can do in any other Antlers view, but on top of that an `autograph` variable is avaiable containing all data for the selected user.
 
+#### Important!
+To make sure your images and links work everywhere, make sure you use the included `full_url` modifier on all relative url's like this: 
+
+```html
+<img src="{{ url | full_url }}" />
+```
+
+This converts them to absolute url's that will work everywhere. 
+
+
 ## Configuration
 
 A config file can be published (see below) for you to specify your own personal preferences. All options are are explained in the config file.
@@ -61,3 +71,15 @@ php artisan vendor:publish --provider="JJalving\Autograph\ServiceProvider" --tag
 The interface is made as simple as possible for your users. Simply select a user and template, then submit. A preview and the HTML code will be displayed, ready to copy.
 
 ![alt text](https://github.com/j-jalving/statamic-autograph/blob/main/screenshot.png?raw=true)
+
+
+## Troubleshooting
+
+#### • The user dropdown is empty
+Make sure the `user_collection` config value is correct.
+
+#### • The templates dropdown is empty
+Check the path to the templates folder in your config (default: `resources/views/autograph`) and make sure it has at least one `.antlers.html` file in it. 
+
+#### • My images don't load
+Do your images work in the preview window, but they wont't load your my email client? Make sure you use the `full_url` modifier on your image url's.
