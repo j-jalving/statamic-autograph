@@ -33,7 +33,7 @@ Using Statamic Autograph is really simple:
 
 ## Creating a template
 
-By default, the addon looks for `antlers.html` template files in the `resources/views/autograph` folder (though this path can be changed in the config). You can do everything on your template that you can do in any other Antlers view, but on top of that a `autograph` variable is passed in containing all data for the selected user.
+By default, the addon looks for `antlers.html` template files in the `resources/views/autograph` folder (though this path can be changed in the config). You can do everything in your template that you can do in any other Antlers view, but on top of that an `autograph` variable is avaiable containing all data for the selected user.
 
 
 ## Publishables
