@@ -3,13 +3,14 @@
 namespace JJalving\Autograph\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use Statamic\Http\Controllers\CP\CpController;
 use Statamic\Facades\User;
 use JJalving\Autograph\Autograph;
 
 class IndexController extends CpController
 {
-  public function index(Request $request)
+  public function index(Request $request): View
   {
     abort_unless(User::current()->can('generate signatures'), 403);
 

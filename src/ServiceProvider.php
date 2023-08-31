@@ -13,6 +13,10 @@ class ServiceProvider extends AddonServiceProvider
     protected $routes = [
         'cp' => __DIR__.'/../routes/cp.php',
     ];
+
+    protected $modifiers = [
+        Modifiers\FullUrl::class,
+    ];
     
     public function bootAddon()
     {
@@ -21,7 +25,7 @@ class ServiceProvider extends AddonServiceProvider
              ->bootAddonNav();
     }
 
-    protected function bootAddonPermissions()
+    protected function bootAddonPermissions(): static
     {
         Permission::group('autograph', 'Autograph', function () {
             Permission::register('generate signatures')->label(__('statamic-autograph::messages.generate_signatures'));
@@ -44,7 +48,7 @@ class ServiceProvider extends AddonServiceProvider
         return $this;
     }
 
-    protected function bootAddonNav()
+    protected function bootAddonNav(): static
     {
         Nav::extend(function ($nav) {
             if ($this->userHasAutographPermissions()) {
@@ -58,14 +62,10 @@ class ServiceProvider extends AddonServiceProvider
         return $this;
     }
 
-    private function userHasAutographPermissions()
+    private function userHasAutographPermissions(): bool
     {
         $user = User::current();
 
         return $user->can('generate signatures');
     }
-    
-    protected $modifiers = [
-        Modifiers\FullUrl::class,
-    ];
 }

@@ -12,7 +12,7 @@ use Statamic\Facades\User;
 
 class Autograph
 {
-  public static function getUsers()
+  public static function getUsers(): mixed
   {
     $collection = config('statamic.autograph.user_collection');
     if ($collection) {
@@ -23,7 +23,7 @@ class Autograph
   }
 
 
-  public static function getUser($id)
+  public static function getUser(string $id): mixed
   {
     $collection = config('statamic.autograph.user_collection');
     if ($collection) {
@@ -33,7 +33,7 @@ class Autograph
     return User::find($id);
   }
 
-  public static function getTemplates()
+  public static function getTemplates(): array
   {
     $folder = config('statamic.autograph.templates_folder');
     $templates = [];
@@ -57,7 +57,7 @@ class Autograph
     return $templates;
   }
 
-  public static function getDisplayNameFromPath($path)
+  public static function getDisplayNameFromPath(string $path): string
   {
     // Get filename from path
     $parts = explode('/', $path);
@@ -66,13 +66,13 @@ class Autograph
     return $filename;
   }
 
-  public static function removeExtensions($inputString)
+  public static function removeExtensions(string $inputString): string
   {
     $pattern = '/\.(antlers|blade)?\.(html|php)?$/';
     return preg_replace($pattern, '', $inputString);
   }
 
-  public static function getParsedTemplate($path, $type, $variables)
+  public static function getParsedTemplate(string $path, string $type, array $variables): string
   {
     // Load the template file
     $file = File::disk('resources')->get($path);
@@ -86,14 +86,14 @@ class Autograph
     // Return parsed template
     if ($type === 'blade') {
       // Parse blade file
-      return (string) Blade::render($file, $data);
+      return Blade::render($file, $data);
     } else {
       // Parse Antlers file
-      return (string) Antlers::parse($file, $data);
+      return Antlers::parse($file, $data);
     }
   }
 
-  public static function removeDoubleSpaces($string)
+  public static function removeDoubleSpaces(string $string): string
   {
     return preg_replace('/\s+/', ' ', $string);
   }
