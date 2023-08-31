@@ -45,10 +45,10 @@
                         </div>
 
                         @if ($errors->has('user_id'))
-                        <div>
-                            <small class="help-block text-red-500 mt-2 mb-0">{{ $errors->first('user_id') }}</small>
-                        </div>
-                    @endif
+                            <div>
+                                <small class="help-block text-red-500 mt-2 mb-0">{{ $errors->first('user_id') }}</small>
+                            </div>
+                        @endif
                     </div>
                 </div>
 
@@ -66,9 +66,9 @@
                     <div class="select-input-container w-full mt-2">
                         <select class="select-input pl-4" name="template_path">
                             @if (count($templates))
-                                @foreach ($templates as $template)
-                                    <option value="{{ $template['path'] }}"
-                                        @if (old('template_path') == $template['path']) selected="selected" @endif>
+                                @foreach ($templates as $path => $template)
+                                    <option value="{{ $path }}"
+                                        @if (old('template_path') == $path) selected="selected" @endif>
                                         {{ $template['label'] }}
                                     </option>
                                 @endforeach

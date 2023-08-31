@@ -12,7 +12,8 @@ With this addon, you can:
 - Generate HTML code to set up an e-mail signature in your favorite e-mail client.
 - Preview what the e-mail signature will look like for each team member.
 - Get user data from control panel accounts or any collection.
-- Fully customizable design with Antlers templates, with support for multiple template files.
+- Fully customizable design with support for multiple template files.
+- Support for Antlers and Blade template files.
 
 
 ## How to Install
@@ -35,7 +36,7 @@ Using Statamic Autograph is really simple:
 
 ## Create a template
 
-By default, the addon looks for `antlers.html` template files in the `resources/views/autograph` folder (though this path can be changed in the config). You can do everything in your template that you can do in any other Antlers view, but on top of that an `autograph` variable is avaiable containing all data for the selected user.
+By default, the addon looks for `.antlers.html` or `.blade.php` template files in the `resources/views/autograph` folder (though this path can be changed in the config). You can do everything in your template that you can do in any other Antlers view, but on top of that an `autograph` variable is avaiable containing all data for the selected user.
 
 #### Important!
 To make sure your images and links work everywhere, make sure you use the included `full_url` modifier on all relative url's like this: 
@@ -79,7 +80,7 @@ The interface is made as simple as possible for your users. Simply select a user
 Make sure the `user_collection` config value is correct.
 
 #### • The templates dropdown is empty
-Check the path to the templates folder in your config (default: `resources/views/autograph`) and make sure it has at least one `.antlers.html` file in it. 
+Check the path to the templates folder in your config (default: `resources/views/autograph`) and make sure it has at least one `.antlers.html` or `.blade.php` template file in it. 
 
 #### • My images don't load
 Do your images work in the preview window, but they wont't load your my email client? Make sure you use the `full_url` modifier on your image url's.
