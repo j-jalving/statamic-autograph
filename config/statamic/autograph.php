@@ -11,7 +11,7 @@ return [
       |
       */
 
-    "templates_folder" => env("AUTOGRAPH_TEMPLATES_FOLDER", "views/autograph"),
+    "templates_folder" => "views/autograph",
 
     /*
       |--------------------------------------------------------------------------

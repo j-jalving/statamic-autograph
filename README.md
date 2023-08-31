@@ -1,5 +1,7 @@
 # Statamic Autograph
 
+![alt text](https://github.com/j-jalving/statamic-autograph/blob/main/product.png?raw=true)
+
 > Statamic Autograph is a Statamic addon that lets your team generate HTML code on the fly to add 
 > custom e-mail signatures in their favourite e-mail client.  
 
@@ -7,10 +9,10 @@
 
 With this addon, you can:
 
-- Generate HTML code to set up your e-mail signature in your favorite e-mail client.
+- Generate HTML code to set up an e-mail signature in your favorite e-mail client.
 - Preview what the e-mail signature will look like for each team member.
 - Get user data from control panel accounts or any collection.
-- Fully customizable design with support for multiple Antlers template files.
+- Fully customizable design with Antlers templates, with support for multiple template files.
 
 
 ## How to Install
@@ -35,6 +37,9 @@ Using Statamic Autograph is really simple:
 
 By default, the addon looks for `antlers.html` template files in the `resources/views/autograph` folder (though this path can be changed in the config). You can do everything in your template that you can do in any other Antlers view, but on top of that an `autograph` variable is avaiable containing all data for the selected user.
 
+## Config
+
+A config file can be published (see below) for you to specify your own personal preferences. All options are are explained in the config file.
 
 ## Publishables
 
@@ -50,3 +55,9 @@ Or publish them individually by using tags:
 php artisan vendor:publish --provider="JJalving\Autograph\ServiceProvider" --tag="config"
 php artisan vendor:publish --provider="JJalving\Autograph\ServiceProvider" --tag="templates"
 ```
+
+## Interface
+
+The interface is made as simple as possible for your users. Simply select a user and template, then submit. A preview and the HTML code will be displayed, ready to copy.
+
+![alt text](https://github.com/j-jalving/statamic-autograph/blob/main/screenshot.png?raw=true)

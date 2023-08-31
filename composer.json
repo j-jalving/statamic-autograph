@@ -1,5 +1,13 @@
 {
     "name": "j-jalving/statamic-autograph",
+    "description": "E-mail signature <HTML> code generator for Statamic",
+    "keywords": [
+        "statamic",
+        "email",
+        "signature",
+        "html"
+    ],    
+    "license": "proprietary",
     "autoload": {
         "psr-4": {
             "JJalving\\Autograph\\": "src"
