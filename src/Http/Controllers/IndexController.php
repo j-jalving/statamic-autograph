@@ -52,7 +52,7 @@ class IndexController extends CpController
     $userFormatter = config('statamic.autograph.user_formatter');
 
     // Return view
-    return view('statamic-autograph::generate', [
+    return view('statamic-autograph::index', [
       'users' => $users,
       'allow_empty_user' => $allowEmptyUser,
       'templates' => $templates,
