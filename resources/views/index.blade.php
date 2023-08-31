@@ -7,7 +7,7 @@
     </header>
 
     <div class="card">
-        <form method="POST" action="{{ cp_route('autograph.generate.index') }}">
+        <form method="POST" action="{{ cp_route('autograph.index') }}">
             @csrf
 
             <div class="publish-fields">

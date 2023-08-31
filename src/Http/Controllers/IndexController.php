@@ -7,7 +7,7 @@ use Statamic\Http\Controllers\CP\CpController;
 use Statamic\Facades\User;
 use JJalving\Autograph\Autograph;
 
-class GenerateController extends CpController
+class IndexController extends CpController
 {
   public function index(Request $request)
   {

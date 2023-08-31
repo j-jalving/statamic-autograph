@@ -11,7 +11,7 @@ return [
       |
       */
 
-    "templates_folder" => "views/autograph",
+  "templates_folder" => "views/autograph",
 
     /*
       |--------------------------------------------------------------------------
