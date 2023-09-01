@@ -11,7 +11,7 @@
 
 With this addon, you can:
 
-- Create e-mail signature templates in Antlers or Blade.
+- Create e-mail signature templates using Antlers or Blade files.
 - Generate HTML code that is ready to use in your teams favorite e-mail client.
 - Preview what the e-mail signature will look like for each team member.
 - Get user data from control panel accounts or any other collection.
