@@ -56,7 +56,7 @@ class IndexController extends CpController
 
       // Check if a template file was given
       $codeSnippet = Autograph::getParsedTemplate($request->template_path, $template['type'], $variables);
-      $codeSnippet = Autograph::removeDoubleSpaces($codeSnippet);
+      $codeSnippet = Autograph::minifyHtml($codeSnippet);
     }
 
     // Remember old form input

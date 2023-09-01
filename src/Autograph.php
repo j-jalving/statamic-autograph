@@ -93,8 +93,8 @@ class Autograph
     }
   }
 
-  public static function removeDoubleSpaces(string $string): string
+  public static function minifyHtml(string $input): string
   {
-    return preg_replace('/\s+/', ' ', $string);
+    return MinifyHtml::minifyHtml($input);
   }
 }
