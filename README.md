@@ -2,8 +2,9 @@
 
 ![alt text](https://github.com/j-jalving/statamic-autograph/blob/main/product.png?raw=true)
 
-> Statamic Autograph is a Statamic addon that lets your team generate HTML code on the fly to add 
-> custom e-mail signatures in their favourite e-mail client.  
+> Statamic Autograph is a Statamic addon that makes it easy to create HTML signatures for
+> your entire team. Create unique templates and Autograph lets you generate personalized HTML
+> code for every member of your team, ready to be used in their favourite e-mail client.
 
 ## Features
 
