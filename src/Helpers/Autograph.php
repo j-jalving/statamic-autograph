@@ -1,9 +1,10 @@
 <?php
 
-namespace JJalving\Autograph;
+namespace JJalving\Autograph\Helpers;
 
 use Illuminate\Support\Facades\Blade;
 use Statamic\Entries\Entry;
+use Statamic\Data\DataCollection;
 use Statamic\Facades\Antlers;
 use Statamic\Facades\Cascade;
 use Statamic\Facades\File;
@@ -12,6 +13,12 @@ use Statamic\Facades\User;
 
 class Autograph
 {
+  /**
+   * Get all users from the collection set up in the config, or if no collection has been set, all 
+   * control panel users will be returned.
+   *
+   * @return mixed
+   */
   public static function getUsers(): mixed
   {
     $collection = config('statamic.autograph.user_collection');
@@ -22,7 +29,13 @@ class Autograph
     return User::all();
   }
 
-
+  /**
+   * Get a specific user by id from the collection set up in the config, or if no collection has
+   * been set, from the control panel users list.
+   *
+   * @param string $id
+   * @return mixed
+   */
   public static function getUser(string $id): mixed
   {
     $collection = config('statamic.autograph.user_collection');
@@ -33,6 +46,11 @@ class Autograph
     return User::find($id);
   }
 
+  /**
+   * Get all the Blade and Antlers file from the templates folder
+   *
+   * @return array
+   */
   public static function getTemplates(): array
   {
     $folder = config('statamic.autograph.templates_folder');
@@ -57,6 +75,12 @@ class Autograph
     return $templates;
   }
 
+  /**
+   * Get the display name from the given path (returns the filename without extension)
+   *
+   * @param string $path
+   * @return string
+   */
   public static function getDisplayNameFromPath(string $path): string
   {
     // Get filename from path
@@ -66,12 +90,26 @@ class Autograph
     return $filename;
   }
 
-  public static function removeExtensions(string $inputString): string
+  /**
+   * Remove .antlers.html and .blade.php extensions from a given path
+   *
+   * @param string $path
+   * @return string
+   */
+  public static function removeExtensions(string $path): string
   {
     $pattern = '/\.(antlers|blade)?\.(html|php)?$/';
-    return preg_replace($pattern, '', $inputString);
+    return preg_replace($pattern, '', $path);
   }
 
+  /**
+   * Parse a Blade or Antlers template to HTML code
+   *
+   * @param string $path
+   * @param string $type
+   * @param array $variables
+   * @return string
+   */
   public static function getParsedTemplate(string $path, string $type, array $variables): string
   {
     // Load the template file
@@ -93,8 +131,14 @@ class Autograph
     }
   }
 
-  public static function minifyHtml(string $input): string
+  /**
+   * Get a minified version of the given HTML string
+   *
+   * @param string $html
+   * @return string
+   */
+  public static function minifyHtml(string $html): string
   {
-    return MinifyHtml::minifyHtml($input);
+    return Minify::minifyHtml($html);
   }
 }

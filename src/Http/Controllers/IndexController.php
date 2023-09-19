@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Statamic\Http\Controllers\CP\CpController;
 use Statamic\Facades\User;
-use JJalving\Autograph\Autograph;
+use JJalving\Autograph\Helpers\Autograph;
 
 class IndexController extends CpController
 {

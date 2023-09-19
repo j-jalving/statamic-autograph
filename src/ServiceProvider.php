@@ -9,22 +9,41 @@ use Statamic\Facades\User;
 
 class ServiceProvider extends AddonServiceProvider
 {
-
+    /**
+     * List of Autograph routes
+     *
+     * @var array
+     */
     protected $routes = [
         'cp' => __DIR__.'/../routes/cp.php',
     ];
 
+    /**
+     * List of modifiers supplied by Autograph
+     *
+     * @var array
+     */
     protected $modifiers = [
         Modifiers\FullUrl::class,
     ];
     
-    public function bootAddon()
+    /**
+     * Boot Autograph
+     *
+     * @return void
+     */
+    public function bootAddon(): void
     {
         $this->bootAddonPermissions()
              ->bootPublishables()
              ->bootAddonNav();
     }
 
+    /**
+     * Set up Autograph permissions
+     *
+     * @return static
+     */
     protected function bootAddonPermissions(): static
     {
         Permission::group('autograph', 'Autograph', function () {
@@ -34,6 +53,11 @@ class ServiceProvider extends AddonServiceProvider
         return $this;
     }
 
+    /**
+     * Set up files that should be published during install
+     *
+     * @return static
+     */
     public function bootPublishables(): static
     {
         if ($this->app->runningInConsole()) {
@@ -48,6 +72,11 @@ class ServiceProvider extends AddonServiceProvider
         return $this;
     }
 
+    /**
+     * Set up navigation items
+     *
+     * @return static
+     */
     protected function bootAddonNav(): static
     {
         Nav::extend(function ($nav) {
@@ -62,6 +91,11 @@ class ServiceProvider extends AddonServiceProvider
         return $this;
     }
 
+    /**
+     * Check if the current user has the proper permissions
+     *
+     * @return boolean
+     */
     private function userHasAutographPermissions(): bool
     {
         $user = User::current();

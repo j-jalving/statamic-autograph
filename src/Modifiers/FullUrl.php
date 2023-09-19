@@ -7,7 +7,7 @@ use Statamic\Modifiers\Modifier;
 class FullUrl extends Modifier
 {
   /**
-   * Modify a value.
+   * Create an absolute url from a relative url by adding the current domain name.
    *
    * @param mixed  $value    The value to be modified
    * @param array  $params   Any parameters used in the modifier
