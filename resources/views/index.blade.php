@@ -43,13 +43,14 @@
                         <div class="select-input-toggle pr-4">
                             <svg-icon name="micro/chevron-down-xs" class="w-2"></svg-icon>
                         </div>
-
-                        @if ($errors->has('user_id'))
-                            <div>
-                                <small class="help-block text-red-500 mt-2 mb-0">{{ $errors->first('user_id') }}</small>
-                            </div>
-                        @endif
                     </div>
+
+                    @if ($errors->has('user_id'))
+                        <div>
+                            <small class="help-block text-red-500 mt-2 mb-0">{{ $errors->first('user_id') }}</small>
+                        </div>
+                    @endif
+
                 </div>
 
                 <div
