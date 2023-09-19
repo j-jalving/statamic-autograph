@@ -42,12 +42,12 @@ return [
       | User Formatter
       |--------------------------------------------------------------------------
       |
-      | This value provides a callback function that will be used as a template
-      | for the options in the user dropdown.
+      | This value allows you to provide a custom user formatter class that
+      | implements the UserFormatter interface. This is used to display the
+      | list of users in the user select field.
       |
       */
 
-    "user_formatter" => function ($user) {
-        return "{$user->name} ({$user->email})";
-    }
+      "user_formatter" => \JJalving\Autograph\CustomUserFormatter::class,
+
 ];

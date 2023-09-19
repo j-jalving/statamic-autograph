@@ -35,7 +35,7 @@
                             @foreach ($users as $user)
                                 <option value="{{ $user->id() }}"
                                     @if (old('user_id') == $user->id) selected="selected" @endif>
-                                    {{ $user_formatter($user) }}
+                                    {{ $user_formatter::getDisplayName($user) }}
                                 </option>
                             @endforeach
                         </select>
