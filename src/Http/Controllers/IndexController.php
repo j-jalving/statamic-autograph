@@ -14,11 +14,10 @@ class IndexController extends CpController
   {
     abort_unless(User::current()->can('generate signatures'), 403);
 
-    // Get allow empty user config value
+    // Get config values
     $allowEmptyUser = config('statamic.autograph.allow_empty_user');
-
-    // Get user formatter config value
     $userFormatter = config('statamic.autograph.user_formatter');
+    $defaultTemplate = config('statamic.autograph.default_template');
 
     // Get the list of users to populate the form with
     $users = Autograph::getUsers();
@@ -67,6 +66,7 @@ class IndexController extends CpController
       'users' => $users,
       'allow_empty_user' => $allowEmptyUser,
       'templates' => $templates,
+      'default_template' => $defaultTemplate,
       'code_snippet' => $codeSnippet,
       'user_formatter' => $userFormatter
     ]);
