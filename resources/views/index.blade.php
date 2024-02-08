@@ -72,12 +72,12 @@
                                         value="{{ $path }}"
                                         @if (
                                             old('template_path') == $path || 
-                                            !old('template_path') && $template['label'] === $defaultTemplate
+                                            !old('template_path') && $template['label'] === $default_template
                                         ) 
                                         selected="selected" 
                                         @endif
                                     >
-                                        {{ $template['label'] }}
+                                        {{ $template['label'] }} {{ old('default_template') }}
                                     </option>
                                 @endforeach
                             @else
