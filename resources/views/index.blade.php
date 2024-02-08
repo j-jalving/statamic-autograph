@@ -68,8 +68,15 @@
                         <select class="select-input pl-4" name="template_path">
                             @if (count($templates))
                                 @foreach ($templates as $path => $template)
-                                    <option value="{{ $path }}"
-                                        @if (old('template_path') == $path) selected="selected" @endif>
+                                    <option 
+                                        value="{{ $path }}"
+                                        @if (
+                                            old('template_path') == $path || 
+                                            !old('template_path') && $template['label'] === $defaultTemplate
+                                        ) 
+                                        selected="selected" 
+                                        @endif
+                                    >
                                         {{ $template['label'] }}
                                     </option>
                                 @endforeach

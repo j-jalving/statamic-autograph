@@ -11,7 +11,18 @@ return [
       |
       */
 
-  "templates_folder" => "views/autograph",
+    "templates_folder" => "views/autograph",
+
+    /*
+      |--------------------------------------------------------------------------
+      | Default template
+      |--------------------------------------------------------------------------
+      |
+      | The default selected option for the templates dropdown 
+      |
+      */
+
+    "default_template" => "default",
 
     /*
       |--------------------------------------------------------------------------
